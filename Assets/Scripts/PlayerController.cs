@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,12 +10,14 @@ public class PlayerController : MonoBehaviour
     public float speed = 7f;
     private Rigidbody2D rb;
     private float health = 1.0f;
-
-
+    public Text healthLabel;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        health = 1.0f;
+        healthLabel.text = "Health : 100%";
+
     }
 
     // Update is called once per frame
@@ -27,24 +30,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if (health < 0.0f)
-        {
-            Debug.Log("Game Over");
-            health = 0.0f;
-
-            gameOver.SetActive(true);
-            //gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            //gameObject.GetComponent<SliderJoint2D>().enabled = false;
-            //rb.AddForce(new Vector2(17, 0), ForceMode2D.Impulse);
-            gameObject.SetActive(false);
-
-
-        }
-        else
-        {
-            if (health > 1.0f)
-                health = 1.0f;
-
+            //1. Schritt: Gesundheitswert aktualisieren
             if (other.collider.name.StartsWith("Virus"))
             {
                 health -= 0.25f;
@@ -60,6 +46,24 @@ public class PlayerController : MonoBehaviour
                 health += 0.1f;
                 gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
             }
+    
+        //2.Schritt: Limits überprüfen:
+         if (health <= 0.0f)
+        {
+            Debug.Log("Game Over");
+            health = 0.0f;
+            
+            gameOver.SetActive(true);
+            
+            gameObject.SetActive(false);
+
         }
+        else if (health > 1.0f)
+        {
+                health = 1.0f;
+        }
+
+        //3.Schritt: Gesundheit anzeigen:
+        healthLabel.text = "Health : " + Mathf.RoundToInt(health * 100) + "%";
     }
 }

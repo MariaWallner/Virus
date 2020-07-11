@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     public GameObject[] prefabs;
     // Start is called before the first frame update
+    public float spawnProbability = 0.97f;
     void Start()
     {
 
@@ -14,7 +15,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Random.value > 0.95)
+        if (Random.value > spawnProbability)
         {
             // neues Objekt Spawnen:
             GameObject clone = Instantiate(
