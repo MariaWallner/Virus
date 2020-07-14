@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
             {
                 health += 0.2f;
                 gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
+                //FindObjectOfType<AudioManager>().Play("desinfektionsmittel");
             }
             else if (other.collider.name.StartsWith("Schutzmaske"))
             {

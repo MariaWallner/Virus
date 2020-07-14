@@ -67,6 +67,15 @@ public class FallingObjectController : MonoBehaviour
             else if (other.collider.name.StartsWith("Player"))
             {
                 Destroy(gameObject);
+                
+                if (gameObject.name.StartsWith("Desinfektion"))
+                {
+                    FindObjectOfType<AudioManager>().Play("desinfektionsmittel");   
+                }
+                else if (gameObject.name.StartsWith("Schutzmaske"))
+                {
+                    FindObjectOfType<AudioManager>().Play("schutzmaske");
+                }
             }
         }
     }
