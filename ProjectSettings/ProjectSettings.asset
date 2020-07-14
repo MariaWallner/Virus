@@ -610,7 +610,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Collab: 1
+    Collab: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -624,10 +624,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 51b14fa4-e6f2-4ded-a4e1-5afa7f8809a2
+  cloudProjectId: 988cdeff-6e39-4ab9-b7f9-29caea215391
   framebufferDepthMemorylessMode: 0
   projectName: Virus
-  organizationId: unity2life
+  organizationId: unity_u5twkc_vwllr5w
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
