@@ -55,6 +55,14 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+# User (Florentine)
+UnityConnectSettings.asset
+ProjectVersion.txt
+ProjectSettings.asset
+packages-lock.json
+manifest.json
+
+
 # Crashlytics generated file
 crashlytics-build.properties
 
