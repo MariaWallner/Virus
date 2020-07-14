@@ -953,16 +953,25 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e762960ac9aae4d14b1ad23a2f1a1216, type: 3}
     volume: 0.77
     pitch: 1.77
+    loop: 0
     source: {fileID: 0}
   - name: schutzmaske
     clip: {fileID: 8300000, guid: 098e267115cbf4fa89e85f6276e46a98, type: 3}
     volume: 0.77
     pitch: 1.77
+    loop: 0
     source: {fileID: 0}
   - name: virus
     clip: {fileID: 8300000, guid: 0ea2c7ea9601744ea8ab8fe560040d50, type: 3}
     volume: 0.21
     pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: theme
+    clip: {fileID: 8300000, guid: 8f2a12939c8c34c8292dbb63fe941abe, type: 3}
+    volume: 0.04
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
 --- !u!4 &880922970
 Transform:
