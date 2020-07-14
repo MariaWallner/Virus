@@ -959,6 +959,11 @@ MonoBehaviour:
     volume: 0.77
     pitch: 1.77
     source: {fileID: 0}
+  - name: virus
+    clip: {fileID: 8300000, guid: 0ea2c7ea9601744ea8ab8fe560040d50, type: 3}
+    volume: 0.21
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &880922970
 Transform:
   m_ObjectHideFlags: 0
