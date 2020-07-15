@@ -143,6 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01247b69529786c46b8597cf4bbc3c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorePrefab: {fileID: 4465586073002848540, guid: fb0750725c95548ca8310cb4c346ed40,
+    type: 3}
   isRotating: 1
   isScaling: 0
   isShifting: 0

@@ -10,14 +10,17 @@ public class PlayerController : MonoBehaviour
     public float speed = 7f;
     private Rigidbody2D rb;
     private float health = 1.0f;
-    public Text healthLabel;
+    public Text healthLabel, scoreLabel;
+    private long score;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         health = 1.0f;
         healthLabel.text = "Health : 100%";
-
+        score = 0;
+        scoreLabel.text = "Score : 0";
     }
 
     // Update is called once per frame
@@ -39,12 +42,14 @@ public class PlayerController : MonoBehaviour
             else if (other.collider.name.StartsWith("Desinfektionsmittel"))
             {
                 health += 0.2f;
+                score += 1000;
                 gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
                 //FindObjectOfType<AudioManager>().Play("desinfektionsmittel");
             }
             else if (other.collider.name.StartsWith("Schutzmaske"))
             {
                 health += 0.1f;
+                score += 200;
                 gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
             }
     
@@ -52,11 +57,10 @@ public class PlayerController : MonoBehaviour
          if (health <= 0.0f)
         {
             Debug.Log("Game Over");
-            health = 0.0f;
-            
             gameOver.SetActive(true);
-            
-            gameObject.SetActive(false);
+            health = 0.0f;
+            StartCoroutine(RemovePlayer());
+            gameOver.SetActive(true);
 
         }
         else if (health > 1.0f)
@@ -64,7 +68,30 @@ public class PlayerController : MonoBehaviour
                 health = 1.0f;
         }
 
-        //3.Schritt: Gesundheit anzeigen:
+        //3.Schritt: Gesundheit und Score anzeigen:
         healthLabel.text = "Health : " + Mathf.RoundToInt(health * 100) + "%";
+        scoreLabel.text = "Score : " + score;
     }
+
+    IEnumerator RemovePlayer(){
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.GetComponent<SliderJoint2D>().enabled = false;
+
+        //Objekt einmalig Kraft nach oben und Drehmoment hinzufügen
+        rb.AddForce(Vector2.up * 7.6f, ForceMode2D.Impulse);
+        rb.AddTorque(7.6f, ForceMode2D.Impulse);
+
+        SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
+        Color c = renderer.color;
+        for (float ft = 1f; ft>0; ft -= 0.02f)
+        {
+            transform.localScale = new Vector3(transform.localScale.x*1.1f, transform.localScale.y*1.1f,1);
+            c.a = ft;
+            renderer.color = c;
+            yield return null;
+        }
+        gameObject.SetActive(false);
+
+    }
+
 }
