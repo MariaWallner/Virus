@@ -12,6 +12,17 @@ public class PlayerController : MonoBehaviour
     private float health = 1.0f;
     public Text healthLabel, scoreLabel;
     private long score;
+    public MenuHandler menuHandler;
+
+
+    void Awake()
+    {
+
+    }
+
+
+    //void OnEnable()
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,10 +68,9 @@ public class PlayerController : MonoBehaviour
          if (health <= 0.0f)
         {
             Debug.Log("Game Over");
-            gameOver.SetActive(true);
             health = 0.0f;
             StartCoroutine(RemovePlayer());
-            gameOver.SetActive(true);
+
 
         }
         else if (health > 1.0f)
@@ -90,8 +100,8 @@ public class PlayerController : MonoBehaviour
             renderer.color = c;
             yield return null;
         }
-        gameObject.SetActive(false);
 
+    menuHandler.HandleGameOver();
     }
 
 }

@@ -4,6 +4,31 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+
+
+
+
+    // Singleton 
+    public static LevelManager instance = null;
+
+    //implementation des Singletons:
+    void Awake()
+    {
+        if (instance == null) 
+        {instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
+
+
+
+
     public GameObject[] prefabs;
     // Start is called before the first frame update
     public float spawnProbability = 0.97f;
