@@ -58,26 +58,31 @@ public class MenuHandler : MonoBehaviour
         if (slider != null)
         {
             int value = (int) slider.value;
+            LevelManager.instance.currentLevel = value;
             Debug.Log(Time.time + "value = " + value);
 
             switch (value)
             {
                 case 0:
+                    LevelManager.instance.spawnProbability = 0.97f;
                     easy.fontSize = 80;
                     normal.fontSize = 50;
                     hard.fontSize = 50;
                     break;
                 case 1:
+                    LevelManager.instance.spawnProbability = 0.93f;
                     easy.fontSize = 50;
                     normal.fontSize = 80;
                     hard.fontSize = 50;
                      break;
                 case 2:
+                    LevelManager.instance.spawnProbability = 0.80f;
                     easy.fontSize = 50;
                     normal.fontSize = 50;
                     hard.fontSize = 80;
                      break;
                 default:
+                    LevelManager.instance.spawnProbability = 0.97f;
                     easy.fontSize = 80;
                     normal.fontSize = 50;
                     hard.fontSize = 50;

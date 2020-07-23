@@ -6,7 +6,7 @@ public class LevelManager : MonoBehaviour
 {
 
 
-
+    public int currentLevel;
 
     // Singleton 
     public static LevelManager instance = null;
