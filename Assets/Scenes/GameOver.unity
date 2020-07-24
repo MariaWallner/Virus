@@ -864,7 +864,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 5
 --- !u!223 &832691215
 Canvas:
   m_ObjectHideFlags: 0
@@ -920,6 +920,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a8e94d78b39b1948983f33b4af3844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  easy: {fileID: 0}
+  normal: {fileID: 0}
+  hard: {fileID: 0}
 --- !u!114 &832691218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1004,7 +1008,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 58b647c5b2ec4184e9a07a561cdf0644, type: 3}
-    m_FontSize: 80
+    m_FontSize: 50
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -1037,7 +1041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
-  m_EffectDistance: {x: 5, y: 5}
+  m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1
 --- !u!1 &917955579
 GameObject:
@@ -1261,5 +1265,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
-  m_EffectDistance: {x: 5, y: 5}
+  m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1

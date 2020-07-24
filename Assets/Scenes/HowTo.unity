@@ -156,7 +156,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 587.74115, y: 312.08588}
+  m_SizeDelta: {x: 580.99567, y: 272.96216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &271977754
 MonoBehaviour:
@@ -189,7 +189,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1.4
+    m_LineSpacing: 1.08
   m_Text: 'How to play the game:
 
     Various objects fall from the sky. Help Tom
@@ -900,7 +900,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1.5, y: 3.62}
+  m_AnchoredPosition: {x: -1.5, y: 3.43}
   m_SizeDelta: {x: 400.07483, y: 23.24366}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &832691217
@@ -915,6 +915,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a8e94d78b39b1948983f33b4af3844d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  easy: {fileID: 0}
+  normal: {fileID: 0}
+  hard: {fileID: 0}
 --- !u!114 &832691218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,7 +1036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
-  m_EffectDistance: {x: 5, y: 5}
+  m_EffectDistance: {x: 2, y: 2}
   m_UseGraphicAlpha: 1
 --- !u!1 &917955579
 GameObject:
