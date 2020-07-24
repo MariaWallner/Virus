@@ -409,11 +409,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 58b647c5b2ec4184e9a07a561cdf0644, type: 3}
-    m_FontSize: 80
+    m_FontSize: 100
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 90
+    m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1492,7 +1492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.05}
   m_SizeDelta: {x: 600, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1295222486
@@ -1700,11 +1700,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 58b647c5b2ec4184e9a07a561cdf0644, type: 3}
-    m_FontSize: 80
+    m_FontSize: 100
     m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 90
+    m_MaxSize: 100
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2280,6 +2280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c5ea3b6360a29b4a9d1695f2d90c199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 0
   prefabs:
   - {fileID: 460832999252518782, guid: 53c9db550f56d704ea3e4ccef01ed735, type: 3}
   - {fileID: 493828172866403106, guid: 9ce9a2a93912b3e4fab96a4b8cfdf4cb, type: 3}
