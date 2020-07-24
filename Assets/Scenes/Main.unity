@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 253717894}
   - component: {fileID: 253717893}
   - component: {fileID: 253717892}
+  - component: {fileID: 253717895}
   m_Layer: 5
   m_Name: ButtonPlay
   m_TagString: Untagged
@@ -350,6 +351,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253717890}
   m_CullTransparentMesh: 0
+--- !u!95 &253717895
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253717890}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e462a559410c14e7aa2602776dcd1a86, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &304885380
 GameObject:
   m_ObjectHideFlags: 0
