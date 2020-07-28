@@ -6,18 +6,24 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
-    public GameObject gameOver;
     public float speed = 30f;
     private Rigidbody2D rb;
     private float health = 1.0f;
     public Text healthLabel, scoreLabel;
     private long score;
     public MenuHandler menuHandler;
-
+    public Animator animator;
+    public SpriteRenderer sprite;
 
     void Awake()
     {
          rb = GetComponent<Rigidbody2D>();
+         if (animator != null) 
+                {
+                    animator.SetBool("isHappy", true);
+                    animator.SetBool("isCatching", true);
+                    animator.SetFloat("health", 1.0f);
+                }
     }
 
 
@@ -51,20 +57,41 @@ public class PlayerController : MonoBehaviour
             if (other.collider.name.StartsWith("Virus"))
             {
                 health -= 0.25f;
-                gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
+
+                if (animator != null) 
+                {
+                    animator.SetBool("isHappy", false);
+                    animator.SetBool("isCatching", false);
+                }
+
+                //gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
             }
             else if (other.collider.name.StartsWith("Desinfektionsmittel"))
             {
                 health += 0.2f;
                 score += 1000;
-                gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
+
+                if (animator != null) 
+                {
+                    animator.SetBool("isHappy", true);
+                    animator.SetBool("isCatching", false);
+                }
+
+                //gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
                 //FindObjectOfType<AudioManager>().Play("desinfektionsmittel");
             }
             else if (other.collider.name.StartsWith("Schutzmaske"))
             {
                 health += 0.1f;
                 score += 200;
-                gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
+
+                 if (animator != null) 
+                {
+                    animator.SetBool("isHappy", true);
+                    animator.SetBool("isCatching", false);
+                }
+                //sprite.color = Color.Lerp(Color.green, Color.white, health);
+                //gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
             }
     
         //2.Schritt: Limits überprüfen:
@@ -72,6 +99,12 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Game Over");
             health = 0.0f;
+
+            if (animator != null) 
+                {
+                    animator.SetFloat("health", 0f);
+                }
+
             StartCoroutine(RemovePlayer());
 
 
@@ -90,7 +123,7 @@ public class PlayerController : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.GetComponent<SliderJoint2D>().enabled = false;
 
-        //Objekt einmalig Kraft nach oben und Drehmoment hinzufügen
+       /* //Objekt einmalig Kraft nach oben und Drehmoment hinzufügen
         rb.AddForce(Vector2.up * 7.6f, ForceMode2D.Impulse);
         rb.AddTorque(7.6f, ForceMode2D.Impulse);
 
@@ -103,7 +136,8 @@ public class PlayerController : MonoBehaviour
             renderer.color = c;
             yield return null;
         }
-
+    */
+        yield return new WaitForSeconds (1f);
         menuHandler.HandleGameOver();
     }
 
