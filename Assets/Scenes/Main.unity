@@ -1153,13 +1153,13 @@ MonoBehaviour:
   sounds:
   - name: desinfektionsmittel
     clip: {fileID: 8300000, guid: e762960ac9aae4d14b1ad23a2f1a1216, type: 3}
-    volume: 0.77
+    volume: 1
     pitch: 1.77
     loop: 0
     source: {fileID: 0}
   - name: schutzmaske
     clip: {fileID: 8300000, guid: 098e267115cbf4fa89e85f6276e46a98, type: 3}
-    volume: 0.77
+    volume: 1
     pitch: 1.77
     loop: 0
     source: {fileID: 0}
@@ -1174,6 +1174,12 @@ MonoBehaviour:
     volume: 0.04
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: gameover
+    clip: {fileID: 8300000, guid: 2e19dfb348e2c450a90fea425d67f789, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &880922970
 Transform:
@@ -2420,6 +2426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
+  score: 0
   prefabs:
   - {fileID: 460832999252518782, guid: 53c9db550f56d704ea3e4ccef01ed735, type: 3}
   - {fileID: 493828172866403106, guid: 9ce9a2a93912b3e4fab96a4b8cfdf4cb, type: 3}

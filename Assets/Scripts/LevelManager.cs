@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
     public int currentLevel;
     public long score;
     public GameObject[] prefabs;
-    public float spawnProbability = 0.97f;
+    public float spawnProbability = 0.98f;
 
     // Singleton 
     public static LevelManager instance = null;

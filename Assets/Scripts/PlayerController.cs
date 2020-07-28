@@ -86,29 +86,29 @@ public class PlayerController : MonoBehaviour
                 score += 200;
 
                  if (animator != null) 
-                {
+                 {
                     animator.SetBool("isHappy", true);
                     animator.SetBool("isCatching", false);
-                }
+                 }
                 //sprite.color = Color.Lerp(Color.green, Color.white, health);
                 //gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
             }
     
         //2.Schritt: Limits überprüfen:
          if (health <= 0.0f)
-        {
+         {
             Debug.Log("Game Over");
             health = 0.0f;
 
             if (animator != null) 
-                {
-                    animator.SetFloat("health", 0f);
-                }
+            {
+            	animator.SetFloat("health", 0f);
+            }
             LevelManager.instance.score = score;
             StartCoroutine(RemovePlayer());
 
 
-        }
+         }
         else if (health > 1.0f)
         {
                 health = 1.0f;
@@ -120,23 +120,10 @@ public class PlayerController : MonoBehaviour
     }
 
     IEnumerator RemovePlayer(){
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        gameObject.GetComponent<SliderJoint2D>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;   
 
-       /* //Objekt einmalig Kraft nach oben und Drehmoment hinzufügen
-        rb.AddForce(Vector2.up * 7.6f, ForceMode2D.Impulse);
-        rb.AddTorque(7.6f, ForceMode2D.Impulse);
+		AudioManager.instance.Play("gameover"); //PLAY gameover sound
 
-        SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
-        Color c = renderer.color;
-        for (float ft = 1f; ft>0; ft -= 0.02f)
-        {
-            transform.localScale = new Vector3(transform.localScale.x*1.1f, transform.localScale.y*1.1f,1);
-            c.a = ft;
-            renderer.color = c;
-            yield return null;
-        }
-    */
         yield return new WaitForSeconds (1f);
         menuHandler.HandleGameOver();
     }

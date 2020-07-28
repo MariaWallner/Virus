@@ -52,19 +52,19 @@ public class MenuHandler : MonoBehaviour
             switch (value)
             {
                 case 0:
-                    LevelManager.instance.spawnProbability = 0.97f;
+                    LevelManager.instance.spawnProbability = 0.98f;
                     easy.fontSize = 80;
                     normal.fontSize = 50;
                     hard.fontSize = 50;
                     break;
                 case 1:
-                    LevelManager.instance.spawnProbability = 0.93f;
+                    LevelManager.instance.spawnProbability = 0.96f;
                     easy.fontSize = 50;
                     normal.fontSize = 80;
                     hard.fontSize = 50;
                      break;
                 case 2:
-                    LevelManager.instance.spawnProbability = 0.80f;
+                    LevelManager.instance.spawnProbability = 0.94f;
                     easy.fontSize = 50;
                     normal.fontSize = 50;
                     hard.fontSize = 80;

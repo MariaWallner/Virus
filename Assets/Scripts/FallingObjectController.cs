@@ -10,13 +10,15 @@ public class FallingObjectController : MonoBehaviour
     public bool isScaling = true;
     // Winkelgeschwindigkeit
     public bool isShifting = true;
+	public Sprite virus;
 
     private float timeShift;
     private float angularVelocity;
     // Start is called before the first frame update
     private Vector3 initialScale;
-
     private Rigidbody2D rb;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,25 +27,31 @@ public class FallingObjectController : MonoBehaviour
         timeShift = Random.Range(0, 90);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Rotation:
+	void FixedUpdate()
+	{
+		// Rotation:
         if (isRotating)
         {
             rb.angularVelocity = angularVelocity;
         }
+		// Schwebeeffekt:
+        if (isShifting)
+        {
+            rb.velocity = new Vector2(2f * Mathf.Sin(timeShift + Time.time * 10), rb.velocity.y);
+        }
+	}
+
+
+
+    // Update is called once per frame
+    void Update()
+    {
         // Wabereffekt:
         if (isScaling)
         {
             transform.localScale = new Vector3(initialScale.x + 0.1f * Mathf.Sin(timeShift + Time.time * 10),
                     initialScale.y + 0.1f * Mathf.Cos(timeShift + Time.time * 10), 1);
-        }
-        // Schwebeeffekt:
-        if (isShifting)
-        {
-            rb.velocity = new Vector2(2f * Mathf.Sin(timeShift + Time.time * 10), rb.velocity.y);
-        }
+        }   
     }
 
     public void OnCollisionEnter2D(Collision2D other)
@@ -57,7 +65,7 @@ public class FallingObjectController : MonoBehaviour
             }
             else if (other.collider.name.StartsWith("Player"))
             {
-                FindObjectOfType<AudioManager>().Play("virus");
+                AudioManager.instance.Play("virus"); //PLAY virus collision sound
                 StartCoroutine(DestroyVirus());
             }
         }
@@ -65,17 +73,27 @@ public class FallingObjectController : MonoBehaviour
         {
             if (other.collider.name.StartsWith("Floor"))
             {
-                Destroy(gameObject);
+				if (LevelManager.instance.currentLevel == 2)
+				{
+					gameObject.GetComponent<SpriteRenderer>().sprite = virus;
+					gameObject.name = "Virus";
+					//Umwandlung in virus und bounce
+				}
+
+				else
+				{
+					Destroy(gameObject);
+				}
             }
             else if (other.collider.name.StartsWith("Player"))
             {
                 if (gameObject.name.StartsWith("Desinfektion"))
                 {
-                    FindObjectOfType<AudioManager>().Play("desinfektionsmittel");   
+                    AudioManager.instance.Play("desinfektionsmittel");  //PLAY desinfektionsmittel collision sound 
                 }
                 else if (gameObject.name.StartsWith("Schutzmaske"))
                 {
-                    FindObjectOfType<AudioManager>().Play("schutzmaske");
+                    AudioManager.instance.Play("schutzmaske");  //PLAY schutzmaske collision sound
                 }
                 StartCoroutine(SpawnScore());
                 StartCoroutine(DestroyItem());
