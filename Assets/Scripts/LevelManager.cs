@@ -6,6 +6,9 @@ public class LevelManager : MonoBehaviour
 {
     
     public int currentLevel;
+    public long score;
+    public GameObject[] prefabs;
+    public float spawnProbability = 0.97f;
 
     // Singleton 
     public static LevelManager instance = null;
@@ -22,18 +25,6 @@ public class LevelManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
-    }
-
-
-
-
-
-    public GameObject[] prefabs;
-    // Start is called before the first frame update
-    public float spawnProbability = 0.97f;
-    void Start()
-    {
-
     }
 
     // Update is called once per frame

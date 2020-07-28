@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
                 {
                     animator.SetFloat("health", 0f);
                 }
-
+            LevelManager.instance.score = score;
             StartCoroutine(RemovePlayer());
 
 
@@ -140,5 +140,11 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds (1f);
         menuHandler.HandleGameOver();
     }
-
+    
+    //GameOver bei Exit erzwingen
+    public void HandleExit()
+    {
+        LevelManager.instance.score = score;
+        menuHandler.HandleGameOver();
+    }
 }

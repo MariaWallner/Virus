@@ -9,18 +9,6 @@ public class MenuHandler : MonoBehaviour
     public Slider slider;
     public Text easy, normal, hard;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // wird aufgerufen bei Klick auf den Playbutton
     public void HandlePlay()
     {
