@@ -182,7 +182,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 98db7274edeb9c847ab8ffaab5776495, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ed1bc9001f461747a0dd49a81f50bae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: {fileID: 0}
-  speed: 7
+  speed: 400
   healthLabel: {fileID: 881470841}
   scoreLabel: {fileID: 360294832}
   menuHandler: {fileID: 2069375242}
@@ -288,7 +288,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2382812, y: 2.0318317}
+    oldSize: {x: 2.8261719, y: 3.1171875}
     newSize: {x: 0.25, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public GameObject gameOver;
-    public float speed = 7f;
+    public float speed = 30f;
     private Rigidbody2D rb;
     private float health = 1.0f;
     public Text healthLabel, scoreLabel;
@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-
+         rb = GetComponent<Rigidbody2D>();
     }
 
 
@@ -27,19 +27,22 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         health = 1.0f;
         healthLabel.text = "Health : 100%";
         score = 0;
         scoreLabel.text = "Score : 0";
     }
 
+    void FixedUpdate()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(horizontalInput, 0) * speed * Time.fixedDeltaTime; //fixedDeltaTime = Zeitspanne, die zwischen 2 physikalischen Updates liegen
+    }
+
     // Update is called once per frame
     void Update()
     {
-        gameOver.SetActive(false);
-        float horizontalInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(horizontalInput, 0) * speed;
+        //gameOver.SetActive(false);
     }
 
     public void OnCollisionEnter2D(Collision2D other)
@@ -101,7 +104,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-    menuHandler.HandleGameOver();
+        menuHandler.HandleGameOver();
     }
 
 }
