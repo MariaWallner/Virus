@@ -25,10 +25,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    //void OnEnable()
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -44,12 +40,6 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(horizontalInput, 0) * speed * Time.fixedDeltaTime; //fixedDeltaTime = Zeitspanne, die zwischen 2 physikalischen Updates liegen
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //gameOver.SetActive(false);
-    }
-
     public void OnCollisionEnter2D(Collision2D other)
     {
             //1. Schritt: Gesundheitswert aktualisieren
@@ -62,7 +52,6 @@ public class PlayerController : MonoBehaviour
                     animator.SetInteger ("mood", -1);
                 }
 
-                //gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
             }
             else if (other.collider.name.StartsWith("Desinfektionsmittel"))
             {
@@ -73,9 +62,6 @@ public class PlayerController : MonoBehaviour
                 {
                     animator.SetInteger ("mood", 1);
                 }
-
-                //gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
-                //FindObjectOfType<AudioManager>().Play("desinfektionsmittel");
             }
             else if (other.collider.name.StartsWith("Schutzmaske"))
             {
@@ -86,8 +72,6 @@ public class PlayerController : MonoBehaviour
                  {
                    animator.SetInteger ("mood", 1);
                  }
-                //sprite.color = Color.Lerp(Color.green, Color.white, health);
-                //gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
             }
     
         //2.Schritt: Limits überprüfen:
