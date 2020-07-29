@@ -1170,14 +1170,14 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: theme
-    clip: {fileID: 8300000, guid: 8f2a12939c8c34c8292dbb63fe941abe, type: 3}
+    clip: {fileID: 8300000, guid: 278942abb6eec417e94c6d8198d2fc2a, type: 3}
     volume: 0.04
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: gameover
-    clip: {fileID: 8300000, guid: 2e19dfb348e2c450a90fea425d67f789, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 19157be220aef41a2a02c04604745e31, type: 3}
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
