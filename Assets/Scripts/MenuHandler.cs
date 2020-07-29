@@ -9,6 +9,17 @@ public class MenuHandler : MonoBehaviour
     public Slider slider;
     public Text easy, normal, hard;
 
+
+    void Start()
+    {
+        if (slider != null)
+        {
+            slider.value = (float) LevelManager.instance.currentLevel;
+            HandleLevel();
+        }
+    }
+    
+
     // wird aufgerufen bei Klick auf den Playbutton
     public void HandlePlay()
     {

@@ -17,13 +17,12 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-         rb = GetComponent<Rigidbody2D>();
-         if (animator != null) 
-                {
-                    animator.SetBool("isHappy", true);
-                    animator.SetBool("isCatching", true);
-                    animator.SetFloat("health", 1.0f);
-                }
+        rb = GetComponent<Rigidbody2D>();
+        if (animator != null) 
+        {
+            animator.SetInteger ("mood", 0);
+            animator.SetFloat("health", 1.0f);
+        }
     }
 
 
@@ -60,8 +59,7 @@ public class PlayerController : MonoBehaviour
 
                 if (animator != null) 
                 {
-                    animator.SetBool("isHappy", false);
-                    animator.SetBool("isCatching", false);
+                    animator.SetInteger ("mood", -1);
                 }
 
                 //gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
@@ -73,8 +71,7 @@ public class PlayerController : MonoBehaviour
 
                 if (animator != null) 
                 {
-                    animator.SetBool("isHappy", true);
-                    animator.SetBool("isCatching", false);
+                    animator.SetInteger ("mood", 1);
                 }
 
                 //gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
@@ -87,8 +84,7 @@ public class PlayerController : MonoBehaviour
 
                  if (animator != null) 
                  {
-                    animator.SetBool("isHappy", true);
-                    animator.SetBool("isCatching", false);
+                   animator.SetInteger ("mood", 1);
                  }
                 //sprite.color = Color.Lerp(Color.green, Color.white, health);
                 //gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.green, Color.white, health);
