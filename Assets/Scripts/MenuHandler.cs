@@ -27,10 +27,11 @@ public class MenuHandler : MonoBehaviour
         SceneManager.LoadScene("Game"); //von einer Scene zu anderen gelangen (von Main zu Game)
     }
 
+    // wird aufgerufen bei Klick auf den Backbutton 
     public void HandleBack()
     {
         Debug.Log("Back Button pressed:" + Time.time);
-        SceneManager.LoadScene("Main"); //von einer Scene zu anderen gelangen 
+        SceneManager.LoadScene("Main"); //von einer Scene zu anderen gelangen (How to zu Main)
     }
 
     public void HandleGameOver()
@@ -42,16 +43,17 @@ public class MenuHandler : MonoBehaviour
     public void HandleHowToPlay()
     {
         Debug.Log("HowToPay Button pressed:" + Time.time);
-        SceneManager.LoadScene("HowTo"); //von einer Scene zu anderen gelangen 
+        SceneManager.LoadScene("HowTo"); //von einer Scene zu anderen gelangen (Main zu How to)
     }
 
-    // wird aufgerufen bei Klick auf den Quitbutton
+    // wird aufgerufen bei Klick auf den Quitbutton (Main wird beendet/Spiel verlassen)
     public void HandleQuit()
     {
         Debug.Log("Quit Button pressed:" + Time.time);
         Application.Quit();
     }
 
+    //
     public void HandleLevel()
     {
         if (slider != null)
